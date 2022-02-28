@@ -1,38 +1,66 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap');
+
+:root {
+  --bg-primary: #000111;
+  --bg-secondary: #1F1F1F;
+  --text-color: #FFFFFF;
+  --text-color-secondary: #666999;
+}
+
 .App {
   text-align: center;
+  grid-template-columns: 250px 1fr;
+  height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-color);
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.grid-widgets {
+   grid-template-areas:
+    "notes scratchpad"
+    "notes events";
+    grid-template-columns: 3fr 2fr;
+    gap: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid-widgets * {
+  background: var(--bg-secondary);
+  
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.notes-widget {
+  grid-area: notes;
+}
+.events-widget {
+  grid-area: events;
+}
+.scratchpad {
+  grid-area: scratchpad;
+}
+.header {
+  backdrop-filter: blur(20px) saturate(173%);
+  -webkit-backdrop-filter: blur(20px) saturate(173%);
+  background-color: rgba(17, 25, 40, 0.86);
 }
 
-.App-link {
-  color: #61dafb;
+.list-item {
+  color: var(--text-color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-item:hover {
+  color: var(--text-color-secondary);
+}
+
+.header-title {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.main {
+  border-left: 1px solid var(--bg-secondary);
+  grid-template-rows: auto 1fr;
 }
