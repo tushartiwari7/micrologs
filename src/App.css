@@ -3,9 +3,11 @@
 
 :root {
   --bg-primary: #000111;
-  --bg-secondary: #1F1F1F;
-  --text-color: #FFFFFF;
+  --bg-secondary: #022b3a;
+  --text-color: #FAFAFA;
   --text-color-secondary: #666999;
+  --gray: #061023;
+  --gray-light: #d3d3d3;
 }
 
 .App {
@@ -17,6 +19,18 @@
 
 }
 
+.add-note {
+  font-size: 6rem;
+}
+
+.btn-float {
+  width: 8rem;
+  height: 8rem;
+}
+.bi-journal-plus {
+  top: 0;
+  right: 0;
+}
 .grid-widgets {
    grid-template-areas:
     "notes scratchpad"
@@ -25,13 +39,14 @@
     gap: 2rem;
 }
 
-.grid-widgets * {
+.grid-widgets>* {
   background: var(--bg-secondary);
   
 }
 
 .notes-widget {
   grid-area: notes;
+  gap: 1rem;
 }
 .events-widget {
   grid-area: events;
@@ -43,6 +58,14 @@
   backdrop-filter: blur(20px) saturate(173%);
   -webkit-backdrop-filter: blur(20px) saturate(173%);
   background-color: rgba(17, 25, 40, 0.86);
+}
+
+.gray {
+  color: var(--gray-light);
+}
+
+.left {
+  text-align: left;
 }
 
 .list-item {
@@ -63,4 +86,33 @@
 .main {
   border-left: 1px solid var(--bg-secondary);
   grid-template-rows: auto 1fr;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.notes {
+  background: var(--gray);
+  min-height: 20rem;
+}
+
+.note-title {
+  border-bottom: 1px solid #444;
+}
+
+.notes-wrapper {
+  overflow-y: auto;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
+  align-items: flex-start;
+  height: 74vh;
+}
+
+.notes-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.quicksand {
+  font-family: 'Quicksand', sans-serif;
 }
