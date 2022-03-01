@@ -1,14 +1,41 @@
 import React from 'react'
+import { useNotelist } from '../context/allnotes-context'
 
-const Note = () => {
+const getNoteBody = (body) => body.length<200? body : `${body.slice(0,150)}...`;
+const getNoteTitle = (title) => title.length<20? title : `${title.slice(0,15)}...`;
+
+
+const Note = ({node}) => {
+
+  const {setnoteList} = useNotelist();
+
+  const pinMe = () => {
+    setnoteList(list=>list.map(item=>item.id===node.id ? {...item,isPinned: !node.isPinned,priority: node.priority ? 0 : 1}:item ));
+  }
+
+  const deleteMe = () => {
+    setnoteList(list=>list.filter(item=>item.id!==node.id));
+  }
+
   return (
-    <div className='notes rounded-m full-width card'>
-      <h3 className='h3 quicksand left mx-xs p-xs note-title flex spread'>Bootstrap icons
-      <i className='bi bi-pin'></i>
+    <div className='notes rounded-m full-width card pos-rel'>
+      <h3 className='h3 quicksand left mx-xs p-xs note-title flex spread'>{getNoteTitle(node.title)}
+      <i className={`bi ${node.isPinned ? "bi-pin-fill" :"bi-pin"}`}
+      onClick={pinMe}
+      ></i>
       </h3>
       <p className='fs-m left p-xs gray'>
-      Bootstrap Icons are SVGs, so you can include them into your HTML in a few ways depending on how your project is setup. is setup. project is setup. 
+        {getNoteBody(node.body)}
       </p>
+      <div className="fs-l flex m-md pos-abs note-crud-btns">
+        <button className="btn btn-outline-error rounded-m px-sm py-xs fs-m quicksand"
+          onClick={deleteMe}
+        >
+          Delete
+        </button>
+        <button className="btn btn-outline-primary rounded-m px-sm py-xs fs-m quicksand"
+        >Edit</button>
+      </div>
     </div>
   )
 }
