@@ -8,11 +8,11 @@ const getTime = () => {
 };
 
 const Sidebar = () => {
-  const {open,toggle} = useModal();
+  const {open,createNewNote} = useModal();
   return (
     <aside  className={`flex flex-col pos-rel my-lg ${open && 'blur'}`}>
       <button className='btn btn-primary fs-m px-md py-sm rounded-l m-md flex spread'
-      onClick={toggle}
+      onClick={createNewNote}
       >New
         <i className='bi bi-caret-down'></i>
       </button>

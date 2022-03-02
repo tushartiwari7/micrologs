@@ -45,6 +45,10 @@
   opacity: 0.5;
 }
 
+.end {
+  justify-content: end;
+}
+
 .grid-widgets {
    grid-template-areas:
     "notes scratchpad"
