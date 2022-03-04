@@ -26,7 +26,7 @@ const Note = ({node}) => {
 
   return (
     <div className='notes rounded-m full-width card pos-rel'>
-      <h3 className='h3 quicksand left mx-xs p-xs note-title flex spread'>{getNoteTitle(node.title)}
+      <h3 className='h3 quicksand left mx-xs p-xs flex spread'>{getNoteTitle(node.title)}
       <i className={`bi ${node.isPinned ? "bi-pin-fill" :"bi-pin"}`}
       onClick={pinMe}
       ></i>
@@ -34,15 +34,17 @@ const Note = ({node}) => {
       <p className='fs-m left p-xs gray'>
         {getNoteBody(node.body)}
       </p>
-      <div className="fs-l flex m-md pos-abs note-crud-btns">
+      <div className="fs-l flex m-md pos-abs note-crud-btns end">
         <button className="btn btn-outline-error rounded-m px-sm py-xs fs-m quicksand"
           onClick={deleteMe}
         >
-          Delete
+        <i className='bi bi-trash' ></i>
         </button>
         <button className="btn btn-outline-primary rounded-m px-sm py-xs fs-m quicksand"
         onClick={editMe}
-        >Edit</button>
+        >        
+        <i className='bi bi-pencil' ></i>
+        </button>
       </div>
     </div>
   )
