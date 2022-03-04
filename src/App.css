@@ -135,6 +135,7 @@
   gap: 1rem;
   z-index: 1;
   bottom: 0;
+  right: 0;
 }
 .note-crud-btns>* {
   background: var(--gray);
@@ -160,7 +161,7 @@
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 1rem;
   align-content: start;
-  height: 74vh;
+  height: 70vh;
   transition: all 1s ease-in-out;
 }
 

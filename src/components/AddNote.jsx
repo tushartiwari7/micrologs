@@ -32,7 +32,6 @@ const AddNote = () => {
       {edit && 'Update note -'}
       <i className={`bi ${noteData.isPinned ? "bi-pin-fill" : "bi-pin"} fs-xl`} onClick={togglePin}></i>
     </div>
-    <hr className='hr' />
     <input 
            type="text" 
            className="input h2 full-width px-sm py-xs my-xs rounded-s"
